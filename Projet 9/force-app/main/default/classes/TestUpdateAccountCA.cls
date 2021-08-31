@@ -39,7 +39,7 @@ private class testUpdateAccountCA {
         o.ShipmentCost__c = 40;
         Test.startTest();
         Update o;
-        Account a = [SELECT Id,  Chiffre_d_affaire__c FROM Account WHERE Id = o.AccountId ];
+        Account a = [select Id, Chiffre_d_affaire__c from Account ];
          
         // System.assertE
         Test.stopTest();
