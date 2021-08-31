@@ -1,13 +1,13 @@
 @isTest
-private class TestUpdateAccountCA {
+private class testUpdateAccountCA {
       
     @TestSetup
     static void initData(){
         testDataFactory.createData(2, 120);
     }
 
-    @isTest static void test() {
-        Test.startTest();
+    /*@isTest static void test() {
+       
         Account acc1 = new Account(Name = 'Test Account 1');
         insert acc1;
 
@@ -30,6 +30,19 @@ private class TestUpdateAccountCA {
         insert oi1;
         OrderItem oi2 = new OrderItem (OrderId = o1.Id, PricebookEntryId = pbe.Id, Quantity=20, UnitPrice = 1000);
         insert oi2;     
-        Test.stopTest();   
+        
+    }*/
+@isTest
+    static void testUpdateCA () {
+        
+        Order o = [select Id, TotalAmount, ShipmentCost__c, NetAmount__c, EffectiveDate, Status from Order LIMIT 1 ];
+        o.ShipmentCost__c = 40;
+        Test.startTest();
+        Update o;
+        Account a = [SELECT Id,  Chiffre_d_affaire__c FROM Account WHERE Id = o.AccountId ];
+         
+        // System.assertE
+        Test.stopTest();
+
     }
 }

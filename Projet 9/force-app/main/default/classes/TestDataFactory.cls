@@ -6,6 +6,7 @@ public static void createData (Integer nbreCompte, Integer nombreCommande) {
     List<Account> accounts = new List<Account>();
     List<Order> listOrders = new List<Order>();
     List<OrderItem> listOrderItems = new List<OrderItem>();
+    
     for(Integer i=0; i< nbreCompte; i++){
         Account acc = new Account(Name = 'Account '+i);
          accounts.add(acc);
